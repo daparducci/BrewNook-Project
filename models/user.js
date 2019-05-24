@@ -9,7 +9,6 @@ var factSchema = new mongoose.Schema({
 var userSchema = new mongoose.Schema({
     name: String,
     email: String,
-    cohort: String,
     avatar: String,
     facts: [factSchema],
     googleId: String
