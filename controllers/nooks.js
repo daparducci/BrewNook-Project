@@ -1,18 +1,13 @@
- const User = require('../models/user');
+ const Nook = require('../models/nook');
 
  module.exports = {
-    index
+    index,
+    create
  };
 
-//  function index(req, res, next) {
-//      User.find(req.query.name).exec(function(err, users) {
-//          res.render('users/index', {
-//              users,
-//              name: req.query.name,
-//              user: req.user
-//          })
-//      })
-// };
+function create(req, res) {
+  res.render('nooks/new');
+}
 
 function index(req, res, next) {
     
@@ -21,10 +16,10 @@ function index(req, res, next) {
     let modelQuery = req.query.name;
     // Default to sorting by name
     
-    User.find(modelQuery).exec(function(err, users) {
+    Nook.find(modelQuery).exec(function(err, users) {
       if (err) return next(err);
       // Passing search values, name & sortKey, for use in the EJS
-      res.render('users/index', {
+      res.render('nooks/index', {
         users,
         user: req.user,
         name: req.query.name,

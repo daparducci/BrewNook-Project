@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <% if (user) { %>
+            <a id="logo" href="#">BrewStop</a>
+            <a class="a-nav"href="#">Home</a>
+            <a  class="a-nav"href ="#">Profile</a>
+            <a class="a-log" href ="/logout">Log Out</a>
+      <% } else { %>
+        <a class="a-log" href ="/auth/google">Login With Google</a>
+    <% } %>
+    </nav>
+ <main class="wrapper">
+        <section class="hero">
+            <h1>Brewnook</h1>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam labore repellat error nam molestiae officia impedit doloremque itaque, animi quisquam? Repudiandae quod in consequatur odit quae rerum atque expedita totam!</p>
+            </article>
+        </section>
+
+        <section class="breweries" id="breweries">
+            <ul>
+                <li>
+                    <img src="#" alt="">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis praesentium dolorem dolores nulla numquam laudantium aliquam a est ipsum laboriosam.</p>
+                    <a href="#">Details</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <img src="#" alt="">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis praesentium dolorem dolores nulla numquam laudantium aliquam a est ipsum laboriosam.</p>
+                    <a href="#">Details</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2019. Made with lots of Coffee and Free WiFi.</p>
+    </footer>
+</body>
+</html>

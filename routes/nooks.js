@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var UsersCtrl = require('../controllers/users');
+var NooksCtrl = require('../controllers/nooks');
 
 /* GET users listing. */
-router.get('/users', UsersCtrl.index);
+router.get('/nooks', NooksCtrl.index);
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();
