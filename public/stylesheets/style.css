@@ -1,12 +1,26 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F8F8EE;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
 
 body {
     height: 100vmin;
+}
+
+.wrapper-new {
+  display: grid;
+  height: 100vmin;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  justify-items: center;
+  align-content: center;
+}
+
+#new-btn {
+  justify-self: center;
 }
 
 .container {
@@ -35,7 +49,7 @@ a:hover {
 }
 
 .hero {
-    background: url(/css/images/beans.jpeg);
+    background: url('/images/beans.jpeg');
     background-size: cover;
     padding: 4rem 2rem;
     display: grid;

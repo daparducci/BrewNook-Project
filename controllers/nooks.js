@@ -10,7 +10,7 @@ function create(req, res) {
   var nook = new Nook(req.body);
   console.log('working');
   nook.save(function(err) {
-    err? res.render('nooks/new') : res.redirect('nooks/index');
+    err? res.render('nooks/new') : res.redirect('/nooks');
   })
   
 
