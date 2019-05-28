@@ -26,8 +26,11 @@ var nookSchema = new mongoose.Schema({
       enum: ['Charge Before You Go', 'Bring a Power Strip', 'Outlet Heaven' ],
       required: true
     },
-    hours: {
-      type: Date,
+    openHour: {
+      type: String
+    },
+    closeHour: {
+      type: String
     }
   }, {
     timestamps: true   

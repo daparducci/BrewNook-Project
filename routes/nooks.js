@@ -4,8 +4,9 @@ var nooksCtrl = require('../controllers/nooks');
 
 
 /* GET users listing. */
-router.get('/nooks', nooksCtrl.index);
-router.get('/nooks/new', nooksCtrl.new);
+router.get('/', nooksCtrl.index);
+router.get('/new', nooksCtrl.new);
+router.get('/:id', nooksCtrl.show);
 router.post('/', nooksCtrl.create);
 
 function isLoggedIn(req, res, next) {
