@@ -9,6 +9,7 @@ router.get('/new', nooksCtrl.new);
 router.get('/:id', nooksCtrl.show);
 router.post('/', nooksCtrl.create);
 router.post('/comments', nooksCtrl.addComment);
+router.delete('/show/:id', nooksCtrl.deleteComment);
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

@@ -8,9 +8,17 @@
     create,
     show,
     addComment,
+    deleteComment
  };
 
- 
+ function deleteComment(req, res) {
+   Nook.findOne({'comments._id': req.params.id}, function(err, nook) {
+     nook.comments.id(req.params.id).remove();
+     nook.save(function(err) {
+       res.redirect('/nooks');
+     });
+   });
+ }
 
  function addComment(req, res) {
    console.log('reqbody: ', req.body);

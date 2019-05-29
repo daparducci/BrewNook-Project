@@ -25,17 +25,23 @@
                     <% if (nook.comments.length) { %>
                         <table>
                           
-                          <tbody>
                             <% nook.comments.forEach(function(n) { %>
+                            <tbody>
                               <tr>
                                <td><%= n.content %></td>
                               </tr>
+                            <form action="/nooks/<%= n._id %>?_method=DELETE" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                            </tbody>
                             <% }); %>
-                          </tbody>
                         </table>
                       <% } else { %>
                         <h5>No Comments Yet</h5>
                       <% } %>
+
+
+
                     
                        
                    
