@@ -12,11 +12,11 @@
  };
 
  function deleteComment(req, res) {
-   Nook.findOne({'comments._id': req.params.id}, function(err, nook) {
-     nook.comments.id(req.params.id).remove();
-     nook.save(function(err) {
-       res.redirect('/nooks');
-     });
+   let nook;
+   Comment.findById(req.params.id, function(err, comment) {
+      nook = comment.nook._id;
+      comment.delete();
+     res.redirect(`/nooks/${nook}`);
    });
  }
 
