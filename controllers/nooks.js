@@ -7,16 +7,24 @@
     new: newNook,
     create,
     show,
-    addComment
+    addComment,
  };
+
+ 
 
  function addComment(req, res) {
    console.log('reqbody: ', req.body);
    var comment = new Comment(req.body);
+   comment.user = req.user;
    comment.save(function(err) {
      Nook.find({}).exec(function(err) {
-       Nook.findById(req.body.nook).exec(function(err) {
-         res.redirect('/nooks');
+       Nook.findById(req.body.nook)
+       .populate('comments')
+       .exec(function(err, nook) {
+         nook.comments.push(comment);
+         nook.save(function(err){
+           res.redirect('/nooks');
+         })
         });
      });
    });
@@ -25,19 +33,13 @@
  
 
 function show(req, res) {
-  Nook.findById(req.params.id)
-  res.render('nooks/show');
-}
+  Nook.findById(req.params.id).populate('comments').exec(function(err, nook) {
+    res.render('nooks/show', {nook})
+  });
+  }
 
 function create(req, res) {
   var nook = new Nook(req.body);
-  // nook.nook = req.body.nook
-  // nook.coffee = req.body.coffee
-  // nook.wifi = req.body.wifi
-  // nook.space = req.body.space
-  // nook.outlets = req.body.outlets
-  // nook.hours = req.body.hours
-  //console.log(nook);
   nook.save(function(err) {
     if (err){
       console.log(err)

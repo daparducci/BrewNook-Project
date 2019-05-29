@@ -7,6 +7,46 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Rendering</h1>
+        
+            <section class="breweries" id="breweries">
+    
+               
+                <ul>
+                    
+                    <img src="#" alt="">
+                    <li><%= nook.nook %></li>
+                    <li><%= nook.coffee %></li>
+                    <li><%= nook.wifi %></li>
+                    <li><%= nook.space %></li>
+                    <li><%= nook.outlets %></li>
+                    <li><%= nook.openHour  %>am -- <%= nook.closeHour %>pm</li>
+                   
+
+                    <% if (nook.comments.length) { %>
+                        <table>
+                          
+                          <tbody>
+                            <% nook.comments.forEach(function(n) { %>
+                              <tr>
+                               <td><%= n.content %></td>
+                              </tr>
+                            <% }); %>
+                          </tbody>
+                        </table>
+                      <% } else { %>
+                        <h5>No Comments Yet</h5>
+                      <% } %>
+                    
+                       
+                   
+                    
+                    
+                    
+                        
+                   
+                   
+                
+            </section>
+        </main>
 </body>
 </html>

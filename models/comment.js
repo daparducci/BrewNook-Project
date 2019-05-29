@@ -6,10 +6,10 @@ var CommentSchema = new mongoose.Schema({
       type: Number,
       min: 0,
       max: 5
-    
-    //  user: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Member'
+    },
+     user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Member'
     },
     nook: {type: mongoose.Schema.Types.ObjectId, ref: 'Nook'}
   }, {
