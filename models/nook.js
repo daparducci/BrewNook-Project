@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-
-
 var nookSchema = new mongoose.Schema({
     nook: {
       type: String,
@@ -31,11 +29,13 @@ var nookSchema = new mongoose.Schema({
     },
     closeHour: {
       type: String
-    }
+    },
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
   }, {
     timestamps: true   
 });
 
 module.exports = mongoose.model('Nook', nookSchema);
+
 
 

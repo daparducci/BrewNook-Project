@@ -32,14 +32,21 @@
            
             <ul>
                 
-                    <img src="#" alt="">
+                <img src="#" alt="">
                 <li><%= n.nook %></li>
                 <li><%= n.coffee %></li>
                 <li><%= n.wifi %></li>
                 <li><%= n.space %></li>
                 <li><%= n.outlets %></li>
                 <li><%= n.openHour  %>am -- <%= n.closeHour %>pm</li>
-                    <a href="/nooks/<% n._id %>">Details</a>
+                    <a href="/nooks/<%= n._id %>">Details</a>
+               
+                  <form action="/nooks/comments" method="POST">
+                    <input type="text" name="content">
+                    <input type="hidden" value="<%= n._id %>" name="nook">
+                    <button type="submit">Add Comment</button>
+                </form>  
+                
                     
                 </ul>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, labore! At nobis beatae cum earum repellat pariatur ullam distinctio ea!</p>

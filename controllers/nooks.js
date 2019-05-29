@@ -1,17 +1,34 @@
  const Member = require('../models/member');
  const Nook = require('../models/nook');
+ const Comment = require('../models/comment');
 
  module.exports = {
     index,
     new: newNook,
     create,
-    show
+    show,
+    addComment
  };
+
+ function addComment(req, res) {
+   console.log('reqbody: ', req.body);
+   var comment = new Comment(req.body);
+   comment.save(function(err) {
+     Nook.find({}).exec(function(err) {
+       Nook.findById(req.body.nook).exec(function(err) {
+         res.redirect('/nooks');
+        });
+     });
+   });
+  
+ }
+ 
 
 function show(req, res) {
   Nook.findById(req.params.id)
   res.render('nooks/show');
 }
+
 function create(req, res) {
   var nook = new Nook(req.body);
   // nook.nook = req.body.nook
@@ -20,7 +37,7 @@ function create(req, res) {
   // nook.space = req.body.space
   // nook.outlets = req.body.outlets
   // nook.hours = req.body.hours
-  console.log(nook);
+  //console.log(nook);
   nook.save(function(err) {
     if (err){
       console.log(err)
@@ -45,7 +62,8 @@ function index(req, res, next) {
       Nook.find(modelQuery).exec(function(err, members) {
         if (err) return next(err);
         // Passing search values, name & sortKey, for use in the EJS
-        console.log(nooks);
+        //console.log(nooks);
+        //console.log('Members:', members);
         res.render('nooks/index', {
           members,
           member: req.user,
