@@ -8,8 +8,22 @@
     create,
     show,
     addComment,
-    deleteComment
+    deleteComment,
+    edit,
+    update
  };
+
+ function update(req, res) {
+  Nook.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, nook) {
+    res.redirect('/nooks');
+  })
+ }
+
+ function edit(req, res) {
+   Nook.findById(req.params.id, function(err, nook) {
+     res.render('nooks/edit', {nook});
+   });
+ }
 
  function deleteComment(req, res) {
    let nook;

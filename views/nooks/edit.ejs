@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+        <div class="wrapper-new">
+                <h2>Create a New Nook</h2><br>
+                <form action="/nooks/<%= nook.id %>?_method=PUT" method="POST">
+                    <label>Nook Name:
+                      <input type="text" name="nook" value="<%= nook.nook %>">
+                    </label><br>
+                    <label>Coffee Quality:
+                      <select type="text" name="coffee" >
+                        <option value="Gas Station" class="custom-select" <%= nook.coffee == "Gas Station" ? 'selected' : '' %>>Gas Station</option>
+                        <option value="Instant" class="custom-select" 
+                        <%= nook.coffee == "Instant" ? 'selected' : '' %>
+                        >Instant
+                    
+                    </option>
+                        <option value="Starbucks" class="custom-select" <%= nook.coffee == "Starbucks" ? 'selected' : '' %>>Starbucks</option>
+                        <option value="Hipster" class="custom-select" <%= nook.coffee == "Hipster" ? 'selected' : '' %>>Hipster</option>
+                      </select>
+                    </label><br>
+                    <label>Do They Have WiFi?
+                        <select name="wifi" type="text">
+                            <option value="Yes" class="custom-select">Yes</option>
+                            <option value="No" class="custom-select">No</option>
+                        </select>
+                    </label><br>
+                    <label>Is there room to work?
+                        <select name="space">
+                            <option value="Cramped" class="custom-select">Cramped</option>
+                            <option value="Cozy" class="custom-select">Cozy</option>
+                            <option value="Copious" class="custom-select">Copious</option>
+                        </select>
+                    </label><br>
+                    <label>Are there Outlets?
+                        <select name="outlets">
+                            <option value="Charge Before You Go" class="custom-select">Charge Before You Go</option>
+                            <option value="Bring a Power Strip" class="custom-select">Bring a Power Strip</option>
+                            <option value="Outlet Heaven" class="custom-select">Outlet Heaven</option>
+                        </select>
+                    </label><br>
+                    <label>What are their Hours?
+                        <input type="time" name="openHour" min="12:00 am" max="24:00 pm" value="<%= nook.openHour %>"><span>to</span><input type="time" name="closeHour" min="12:00 pm" max="12:00 am" value="<%= nook.closeHour %>">
+                    </label><br>
+                    <input id="new-btn" type="submit" value="Add Nook">
+            
+                </form>
+            </div>
+</body>
+</html>

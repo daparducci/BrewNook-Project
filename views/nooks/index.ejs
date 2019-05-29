@@ -45,9 +45,13 @@
                     <input type="text" name="content">
                     <input type="hidden" value="<%= n._id %>" name="nook">
                     <button type="submit">Add Comment</button>
+                    </form>
+                    <form action="/nooks/<%= n._id %>/edit" method="GET">
+                    <button type="submit">Edit</button>
+
                 </form>  
                 
-                
+
                     
                 </ul>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, labore! At nobis beatae cum earum repellat pariatur ullam distinctio ea!</p>
