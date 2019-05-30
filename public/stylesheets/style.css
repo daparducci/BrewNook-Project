@@ -83,17 +83,16 @@ a:hover {
 }
 
 .hero {
-    /* background: url('/images/beans.jpeg'); */
-    
+    background: url('/images/coffee-beans.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 4rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(240px, 1fr));
     align-items: center;
     color: goldenrod;
 }
-/* .a-nav {
-    background-color: white;
-} */
+
 p, a {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -109,26 +108,6 @@ html {
 
 }
 
-/* nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 38px;
-    background-color:white;
-} */
-
-/* nav a {
-   color: black;
-} */
-
-/* nav a:hover {
-
-}
-
-#logo {
-
-} */
-
 .breweries {
   display: grid;
   justify-content: center;
@@ -137,7 +116,7 @@ html {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .headers {
