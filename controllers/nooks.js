@@ -20,8 +20,9 @@
  }
 
  function edit(req, res) {
+   let member = req.user.id;
    Nook.findById(req.params.id, function(err, nook) {
-     res.render('nooks/edit', {nook});
+     res.render('nooks/edit', {nook, member});
    });
  }
 

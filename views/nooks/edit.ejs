@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
+        <nav class="nav-bar">
+                <div class="nav-new">
+                    <% if (member) { %>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>      <a class="a-nav" href="#">BrewStop</a></li> 
+                        <li><a class="a-nav"href="/nooks">Home</a></li>
+                        
+                        <li><a id = "log" class="a-nav" href ="/logout">Log Out</a></li>
+                  <% } else { %>
+                    <li><a class="a-log" href ="/auth/google">Login With Google</a></li>
+                </ul>
+                <% } %>
+                </div>
+            </nav>
+            
         <div class="wrapper-new">
                 <h2>Update Your Nooks</h2><br>
                 <form action="/nooks/<%= nook.id %>?_method=PUT" method="POST">
