@@ -87,7 +87,8 @@ function create(req, res) {
 
 
 function newNook(req, res) {
-  res.render('nooks/new');
+  
+  res.render('nooks/new', {member: req.user});
 }
 
 function index(req, res, next) {

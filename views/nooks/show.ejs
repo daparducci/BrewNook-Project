@@ -4,22 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Document</title>
 </head>
 <body>
+        <nav class="nav-bar">
+                <div class="nav-new">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="#" class="a-nav">Logo</a></li>
+                    <li><a class="a-nav" href="/nooks">Home</a></li>
+                    <li><a class="a-nav" href="/logout">Logout</a></li>
+                  </ul>
+                </div>
+        </nav>
         
             <section class="breweries" id="breweries">
-    
+                <h2 class="headers">  Nook Details</h2>
                
                 <ul>
                     
                     <img src="#" alt="">
-                    <li><%= nook.nook %></li>
-                    <li><%= nook.coffee %></li>
-                    <li><%= nook.wifi %></li>
-                    <li><%= nook.space %></li>
-                    <li><%= nook.outlets %></li>
-                    <li><%= nook.openHour  %>am -- <%= nook.closeHour %>pm</li>
+                    
+                    <li id ="coffee-shop"><%= nook.nook %></li><br><br>
+                    
+                    <li><span>Coffee Quality: </span><%= nook.coffee %></li>
+                    <li><span>WiFi: </span><%= nook.wifi %></li>
+                    <li><span>Room to Work? </span><%= nook.space %></li>
+                    <li><span>Charge Before You Go? </span><%= nook.outlets %></li>
+                    <li><span>Hours: </span><%= nook.openHour  %>am -- <%= nook.closeHour %>pm</li>
                     <% if (member == nook.user ) { %>
                     <form action="/nooks/<%= nook._id %>/edit" method="GET">
                         <button type="submit">Edit</button>

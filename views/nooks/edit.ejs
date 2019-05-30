@@ -11,7 +11,7 @@
 </head>
 <body>
         <div class="wrapper-new">
-                <h2>Create a New Nook</h2><br>
+                <h2>Update Your Nooks</h2><br>
                 <form action="/nooks/<%= nook.id %>?_method=PUT" method="POST">
                     <label>Nook Name:
                       <input type="text" name="nook" value="<%= nook.nook %>">
@@ -51,7 +51,7 @@
                     <label>What are their Hours?
                         <input type="time" name="openHour" min="12:00 am" max="24:00 pm" value="<%= nook.openHour %>"><span>to</span><input type="time" name="closeHour" min="12:00 pm" max="12:00 am" value="<%= nook.closeHour %>">
                     </label><br>
-                    <input id="new-btn" type="submit" value="Add Nook">
+                    <input id="new-btn" type="submit" value="Update">
             
                 </form>
             </div>

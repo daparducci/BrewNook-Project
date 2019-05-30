@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    
+    
 
     <title>Document</title>
 </head>
 <body>
+        <nav class="nav-bar">
+                <div class="nav-new">
+                    <% if (member) { %>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>      <a class="a-nav" href="#">BrewStop</a></li> 
+                        <li><a class="a-nav"href="/nooks">Home</a></li>
+                        
+                        <li><a id = "log" class="a-nav" href ="/logout">Log Out</a></li>
+                  <% } else { %>
+                    <li><a class="a-log" href ="/auth/google">Login With Google</a></li>
+                </ul>
+                <% } %>
+                </div>
+            </nav>
        
     <div class="wrapper-new">
         <h2>Create a New Nook</h2><br>
@@ -20,13 +36,16 @@
               <input type="text" name="nook">
             </label><br>
             <label>Coffee Quality:
-              <select type="text" name="coffee">
-                <option value="Gas Station" class="custom-select">Gas Station</option>
-                <option value="Instant" class="custom-select">Instant</option>
-                <option value="Starbucks" class="custom-select">Starbucks</option>
-                <option value="Hipster" class="custom-select">Hipster</option>
-              </select>
-            </label><br>
+            <div class="input-field col s12">
+
+                  <select type="text" name="coffee">
+                    <option value="Gas Station" class="custom-select">Gas Station</option>
+                    <option value="Instant" class="custom-select">Instant</option>
+                    <option value="Starbucks" class="custom-select">Starbucks</option>
+                    <option value="Hipster" class="custom-select">Hipster</option>
+                  </select>
+                </div>
+                </label><br>
             <label>Do They Have WiFi?
                 <select name="wifi" type="text">
                     <option value="Yes" class="custom-select">Yes</option>

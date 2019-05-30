@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  padding: 0;
+  height: 100vmin;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #F8F8EE;
 }
@@ -7,20 +8,49 @@ body {
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
 
 body {
+    padding: 0;
     height: 100vmin;
 }
 
 .wrapper-new {
-  display: grid;
-  height: 100vmin;
-  grid-template-columns: 1fr;
-  margin: 0 auto;
-  justify-items: center;
-  align-content: center;
+  display: grid !important;
+  height: 100vmin !important;
+  grid-template-columns: 1fr !important;
+  margin: 0 auto !important;
+  justify-items: center !important;
+  align-content: center !important;
+}
+
+.nav-wrapper {
+  background-color: #F8F8EE;
+}
+
+#nav-mobile {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 14vh;
+  background-color: #512A1F;
 }
 
 #new-btn {
   justify-self: center;
+}
+
+#log {
+  align-items: end;
+  text-align: right;
+  margin-right: 10px;
+}
+
+#app-name {
+  color: goldenrod;
 }
 
 .container {
@@ -34,13 +64,17 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
 }
 
+h2 {
+  padding-left: 50px;
+}
+
 a {
-        background-color: goldenrod;
+        /* background-color: goldenrod; */
         text-decoration: none;
         color: white;
-        border-radius: .25rem;
+        /* border-radius: .25rem; */
         text-align: center;
-        display: inline-block;
+        /* display: inline-block; */
         transition: all .3s;
 }
 
@@ -49,22 +83,23 @@ a:hover {
 }
 
 .hero {
-    background: url('/images/beans.jpeg');
-    background-size: cover;
+    /* background: url('/images/beans.jpeg'); */
+    
     padding: 4rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(240px, 1fr));
     align-items: center;
-    color: white;
+    color: goldenrod;
 }
-.a-nav {
+/* .a-nav {
     background-color: white;
-}
+} */
 p, a {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 html {
+    padding: 0;
     scroll-behavior: smooth;
 }
 
@@ -74,29 +109,60 @@ html {
 
 }
 
-nav {
+/* nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 38px;
     background-color:white;
-}
+} */
 
-nav a {
+/* nav a {
    color: black;
-}
+} */
 
-nav a:hover {
+/* nav a:hover {
 
 }
 
 #logo {
 
+} */
+
+.breweries {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #512A1F; 
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+}
+
+.headers {
+  text-align: center;
+  align-items: center;
+}
+
+#coffee-shop {
+  border: none;
+  font-size: 20px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.a-details {
+  border: none;
+  color: black;
 }
 
 .breweries > ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr;
+    /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
     grid-gap: 1rem;
   }
   
@@ -150,6 +216,7 @@ footer {
     color: white;
     text-align: center;
     font-size: .75rem;
+    padding-top: 5px;
   }
 
   li {
