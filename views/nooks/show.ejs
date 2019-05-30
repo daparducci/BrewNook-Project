@@ -20,8 +20,11 @@
                     <li><%= nook.space %></li>
                     <li><%= nook.outlets %></li>
                     <li><%= nook.openHour  %>am -- <%= nook.closeHour %>pm</li>
-                   
-
+                    <% if (member == nook.user ) { %>
+                    <form action="/nooks/<%= nook._id %>/edit" method="GET">
+                        <button type="submit">Edit</button>
+                    </form>  
+                    <% } %>
                     <% if (nook.comments.length) { %>
                         <table>
                           
@@ -29,17 +32,27 @@
                             <tbody>
                               <tr>
                                <td><%= n.content %></td>
+                               <td><% console.log('works before if') %>
+                               <td><% console.log(member) %>
+                               <td><% console.log(nook.user) %>
+                                   <% if (member == n.user) { %>
+                                    <% console.log('if statement') %>
+                                    
+                                      <form action="/nooks/show/<%= n._id %>?_method=DELETE" method="POST">
+                                            <button type="submit">Delete</button>
+                                      </form>
+                                    
+                             <% } %>
+                               </td>
                               </tr>
-                            <form action="/nooks/show/<%= n._id %>?_method=DELETE" method="POST">
-                                <button type="submit">Delete</button>
-
-                            </form>
                             </tbody>
                             <% }); %>
                         </table>
                       <% } else { %>
                         <h5>No Comments Yet</h5>
                       <% } %>
+
+                     
 
 
 

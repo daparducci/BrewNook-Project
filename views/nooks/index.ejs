@@ -39,18 +39,14 @@
                 <li><%= n.space %></li>
                 <li><%= n.outlets %></li>
                 <li><%= n.openHour  %>am -- <%= n.closeHour %>pm</li>
+                <% if(member) { %>
                     <a href="/nooks/<%= n._id %>">Details</a>
-               
-                  <form action="/nooks/comments" method="POST">
-                    <input type="text" name="content">
-                    <input type="hidden" value="<%= n._id %>" name="nook">
-                    <button type="submit">Add Comment</button>
-                    </form>
-                    <form action="/nooks/<%= n._id %>/edit" method="GET">
-                    <button type="submit">Edit</button>
-
-                </form>  
-                
+                    <% } %>
+                    <form action="/nooks/comments" method="POST">
+                        <input type="text" name="content">
+                        <input type="hidden" value="<%= n._id %>" name="nook">
+                        <button type="submit">Add Comment</button>
+                        </form>
 
                     
                 </ul>

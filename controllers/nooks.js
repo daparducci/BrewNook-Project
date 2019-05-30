@@ -55,21 +55,36 @@
  
 
 function show(req, res) {
+
+  let member = req.user.id;
+  console.log(typeof(member), member);
   Nook.findById(req.params.id).populate('comments').exec(function(err, nook) {
-    res.render('nooks/show', {nook})
+    console.log(nook);
+    console.log('nookUser: ', nook.user);
+    console.log('user_id: ', req.user._id);
+    res.render('nooks/show', {nook, member})
   });
   }
 
 function create(req, res) {
   var nook = new Nook(req.body);
   nook.save(function(err) {
-    if (err){
-      console.log(err)
-      res.render('nooks/new')
-    } 
-    res.redirect('/nooks');
-  })
-}
+    Member.find({}).exec(function(err) {
+      Member.findById(req.user._id).exec(function(err) {
+        nook.user = req.user;
+        nook.save(function(err) {
+          err ?
+          res.render('nooks/new') : res.redirect('/nooks');
+        })
+      })
+    })
+    // if (err){
+    //   console.log(err)
+    //   res.render('nooks/new')
+    })} 
+    // res.redirect('/nooks');
+  
+
 
 function newNook(req, res) {
   res.render('nooks/new');

@@ -14,6 +14,10 @@ var nookSchema = new mongoose.Schema({
       enum: ['Yes', 'No'],
       required: true
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Member'
+    },
     space: {
       type: String,
       enum: ['Cramped', 'Cozy', 'Copious'],
