@@ -47,16 +47,13 @@
          nook.comments.push(comment);
          nook.save(function(err){
            res.redirect('/nooks');
-         })
+         });
         });
      });
    });
-  
- }
+  }
  
-
 function show(req, res) {
-
   let member = req.user.id;
   console.log(typeof(member), member);
   Nook.findById(req.params.id).populate('comments').exec(function(err, nook) {
@@ -76,14 +73,11 @@ function create(req, res) {
         nook.save(function(err) {
           err ?
           res.render('nooks/new') : res.redirect('/nooks');
-        })
-      })
-    })
-    // if (err){
-    //   console.log(err)
-    //   res.render('nooks/new')
-    })} 
-    // res.redirect('/nooks');
+        });
+      });
+    });
+})}
+    
   
 
 
@@ -93,18 +87,11 @@ function newNook(req, res) {
 }
 
 function index(req, res, next) {
-    // res.render('nooks/index');
-    // Make the query object to use with Student.find based up
-    // the user has submitted the search form or now
-    let modelQuery = req.query.name;
-    // Default to sorting by name
+   let modelQuery = req.query.name;
     Nook.find({}, function(err, nooks){
 
       Nook.find(modelQuery).exec(function(err, members) {
         if (err) return next(err);
-        // Passing search values, name & sortKey, for use in the EJS
-        //console.log(nooks);
-        //console.log('Members:', members);
         res.render('nooks/index', {
           members,
           member: req.user,
@@ -112,6 +99,6 @@ function index(req, res, next) {
           nooks
         });
       });
-    } )
+    });
   }
  
